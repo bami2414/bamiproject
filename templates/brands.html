@@ -1,0 +1,68 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2 remove-gap">
+            <div class="panel panel-primary">
+                <div class="panel-heading text-center">
+                    <h4>Popular Stores</h4>
+                </div>
+                <ul class="list-group">
+                    <div ng-repeat="store in popularStores">
+                        <a href="#stores/{{store.storeId}}" class="list-group-item">
+                            <div class="text-center">
+                                <h4><b>{{store.storeName}}</b></h4>
+                                <br>
+                                <p>{{store.offer}}</p>
+                                <br>
+                                <p>{{store.startDate | date : 'dd/mm/yyyy'}} - {{store.endDate | date : 'dd/mm/yyyy'}}</p>
+                            </div>
+                        </a>
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-8 extra-space">
+            <div ng-repeat="brands in brands">
+                <div class="row">
+                    <div ng-repeat="brand in brands">
+                        <div class="col-md-4">
+                            <a href="#brands/{{brand.brandId}}">
+                                <div class="well text-center eq-height">
+                                    <h4><b>{{brand.brandName}}</b></h4>
+                                    <br>
+                                    <p>{{brand.presenceCount}}</p>
+                                    <p>STORES</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 remove-gap">
+            <div class="panel panel-success">
+                <div class="panel-heading text-center">
+                    <h4>Nearby Stores</h4>
+                </div>
+                <ul class="list-group">
+                    <div ng-show="dontShowNearby">
+                        <p>opps something went wrong</p>
+                        <p>please clear the location access flag and reload the page</p>
+                    </div>
+                    <div ng-show="showNearby">
+                        <div ng-repeat="store in nearByStoresBySize">
+                            <a href="#stores/{{store.storeId}}" class="list-group-item">
+                                <div class="text-center">
+                                    <h4><b>{{store.storeName}}</b></h4>
+                                    <br>
+                                    <p>{{store.offer}}</p>
+                                    <br>
+                                    <p>{{store.startDate | date : 'dd/mm/yyyy'}} - {{store.endDate | date : 'dd/mm/yyyy'}}</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2 remove-gap">
+            <div class="panel panel-primary">
+                <div class="panel-heading text-center">
+                    <h4>Popular Brands</h4>
+                </div>
+                <ul class="list-group">
+                    <div ng-repeat="brand in popularBrands">
+                        <a href="#brands/{{brand.brandId}}" class="list-group-item">
+                            <div class="text-center">
+                                <h4><b>{{brand.brandName}}</b></h4>
+                                <br>
+                                <p>{{brand.presenceCount}}</p>
+                                <p>Stores</p>
+                            </div>
+                        </a>
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-8 remove-gap">
+            <div class="jumbotron">
+                <h1><b>{{brand.brandName}}</b></h1>
+            </div>
+            <div class="container-fluid">
+                <div ng-repeat="storeDetail in storeDetails">
+                    <div class="row">
+                        <div ng-repeat="store in storeDetail">
+                            <div class="col-md-4">
+                                <div class="thumbnail eq-height-thumbnail">
+                                    <img src="demo1.png" alt="#">
+                                    <div class="caption">
+                                        <div class="text-center">
+                                            <h4><b>{{store.storeName}}</b></h4>
+                                            <p><b>{{store.offer}}</b></p>
+                                            <p>{{store.startDate | date : 'dd/mm/yyyy'}} - {{store.endDate | date : 'dd/mm/yyyy'}}</p>
+                                            <p ng-if="store.shopNo != null">Shop No : {{store.shopNo}}</p>
+                                            <p>{{store.line1}}</p>
+                                            <p>{{store.line2}}</p>
+                                            <p>{{store.city}}</p>
+                                            <a href="#stores/{{store.storeId}}" class="btn btn-primary thumbnail_button" role="button">Visit Store</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 remove-gap">
+            <div class="panel panel-success">
+                <div class="panel-heading text-center">
+                    <h4>Nearby Stores</h4>
+                </div>
+                <ul class="list-group">
+                    <div ng-show="dontShowNearby">
+                        <p>opps something went wrong</p>
+                        <p>please clear the location access flag and reload the page</p>
+                    </div>
+                    <div ng-show="showNearby">
+                        <div ng-repeat="store in nearByStoresBySize">
+                            <a href="#stores/{{store.storeId}}" class="list-group-item">
+                                <div class="text-center">
+                                    <h4><b>{{store.storeName}}</b></h4>
+                                    <br>
+                                    <p>{{store.offer}}</p>
+                                    <br>
+                                    <p>{{store.startDate | date : 'dd/mm/yyyy'}} - {{store.endDate | date : 'dd/mm/yyyy'}}</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

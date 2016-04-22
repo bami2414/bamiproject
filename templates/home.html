@@ -1,0 +1,82 @@
+<!-- popular brands -->
+<div>
+    <div class="text-center">
+        <h1>POPULAR BRANDS</h1>
+        <div class="container-fluid">
+            <div class="row">
+                <div ng-repeat="brand in popularBrands">
+                    <div class="col-md-3">
+                        <a href="#/brands/{{brand.brandId}}">
+                            <div class="well text-center eq-height-home">
+                                <h4><b>{{brand.brandName}}</b></h4>
+                                <br>
+                                <p>{{brand.presenceCount}}</p>
+                                <p>STORES</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#/brands" class="btn btn-success">Check All Brands</a>
+    </div>
+</div>
+
+<!-- popular stores -->
+
+<div>
+    <div class="text-center">
+        <h1>POPULAR STORES</h1>
+        <div class="container-fluid">
+            <div class="row">
+                <div ng-repeat="store in popularStores">
+                    <div class="col-md-3">
+                        <a href="#/stores/{{store.storeId}}">
+                            <div class="well text-center eq-height-home">
+                                <h4><b>{{store.storeName}}</b></h4>
+                                <br>
+                                <p>{{store.offer}}</p>
+                                <br>
+                                <p>{{store.startDate | date : 'dd/mm/yyyy'}} - {{store.endDate | date : 'dd/mm/yyyy'}}</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#/stores" class="btn btn-success">Check All Stores</a>
+    </div>
+</div>
+
+<!-- nearby stores -->
+
+<div>
+    <div class="text-center">
+        <h1>NEARBY STORES</h1>
+        <div ng-show="dontShowNearby">
+            <p>opps something went wrong</p>
+            <p>please clear the location access flag and reload the page</p>
+        </div>
+        <div ng-show="showNearby">
+            <div class="container-fluid">
+                <div class="row">
+                    <div ng-repeat="store in nearByStoresBySize">
+                        <div class="col-md-3">
+                            <a href="#/stores/{{store.storeId}}">
+                                <div class="well text-center eq-height-home">
+                                    <h4><b>{{store.storeName}}</b></h4>
+                                    <br>
+                                    <p>{{store.offer}}</p>
+                                    <br>
+                                    <p>{{store.startDate | date : 'dd/mm/yyyy'}} - {{store.endDate | date : 'dd/mm/yyyy'}}</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="#/nearByStores" class="btn btn-success">Check All Nearby Stores</a>
+        </div>
+    </div>
+</div>
+<br>

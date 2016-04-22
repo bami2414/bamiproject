@@ -1,0 +1,43 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        <a class="navbar-brand" href="#/">
+            <img src="rsz_logo.png" alt="">
+        </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#/home">Home <span class="sr-only">(current)</span></a></li>
+                <li><a href="#/brands">Brands</a></li>
+                <li><a href="#/stores">Stores</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Mysore <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Mysore</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search Brands & Stores" ng-model="selected" uib-typeahead="suggestion as suggestion.name for suggestion in data | filter:{name:$viewValue}" typeahead-no-results="noResults">
+                </div>
+                <button ng-click="search(selected)" class="btn btn-default">Submit</button>
+                <div ng-show="noResults">
+                    <i class="glyphicon glyphicon-remove"></i> No Results Found
+                </div>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-show="auth.profile.nickname == null"><button ng-click="auth.signin()" class="btn btn-default">Sign In</button></li>
+                <li ng-show="auth.profile.nickname != null"><a>{{auth.profile.nickname}}</a></li>
+                <li ng-show="auth.profile.nickname != null"><button ng-click="logout()" class="btn btn-default">Log Out</button></li>
+            </ul>
+        </div>
+    </div>
+</nav>
